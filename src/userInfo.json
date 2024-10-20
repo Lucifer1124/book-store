@@ -1,0 +1,26 @@
+[
+  {
+    "authorName": "grade name",
+    "bookName": "gradde book",
+    "file": {
+      "name": "Grade_Documents.pdf",
+      "path": "\\uploadFiles\\1729404641237-Grade_Documents.pdf"
+    }
+  },
+  {
+    "authorName": "my name",
+    "bookName": "my book",
+    "file": {
+      "name": "30901222187_PUSPAL BISWAS_BCAS401.pdf",
+      "path": "src\\uploadFiles\\1729421620171-30901222187_PUSPAL BISWAS_BCAS401.pdf"
+    }
+  },
+  {
+    "authorName": "filed",
+    "bookName": "filed name",
+    "file": {
+      "name": "Grade_Documents.pdf",
+      "path": "src\\uploadFiles\\1729422252527-Grade_Documents.pdf"
+    }
+  }
+]

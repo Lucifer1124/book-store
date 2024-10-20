@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { DeleteOutlined, InboxOutlined } from '@ant-design/icons';
 import { Button, message, Upload, Input, Row, Col } from 'antd';
 import './App.css'
+import Header from './component/Header.js';
 
 const { Dragger } = Upload;
 
@@ -54,64 +55,68 @@ const App = () => {
 
   console.log('file', files)
   return (
-    <div className='padding-20'>
-      <Row gutter={[24, 24]}>
-        <Col xs={24} sm={24} md={12} lg={12}>
-          <Input
-            placeholder="Author Name"
-            value={authorName}
-            onChange={(e) => setAuthorName(e.target.value)}
-            style={{ marginTop: '10px' }}
-          />
-        </Col>
-        <Col xs={24} sm={24} md={12} lg={12}>
-          <Input
-            placeholder="Book Name"
-            value={bookName}
-            onChange={(e) => setBookName(e.target.value)}
-            style={{ marginTop: '10px' }}
-          />
-        </Col>
-        <Col xs={24} sm={24} md={24} lg={24}>
-          <Dragger {...uploadProps}>
-            <p className="ant-upload-drag-icon">
-              <InboxOutlined />
-            </p>
-            <p className="ant-upload-text">
-              Click or drag files to this area to upload
-            </p>
-            <p className="ant-upload-hint">
-              Support for multiple uploads. Strictly prohibited from uploading
-              company data or other banned files.
-            </p>
-          </Dragger>
-          {/* {files.length > 0 && <div className='padding-top-20'>
+    <>
+      <Header />
+      <div className='padding-20'>
+        <Row gutter={[24, 24]}>
+          <Col xs={24} sm={24} md={12} lg={12}>
+            <label>Author Name</label>
+            <Input
+              placeholder="Author Name"
+              value={authorName}
+              onChange={(e) => setAuthorName(e.target.value)}
+              style={{ marginTop: '10px' }}
+            />
+          </Col>
+          <Col xs={24} sm={24} md={12} lg={12}>
+            <label>Book Name</label>
+            <Input
+              placeholder="Book Name"
+              value={bookName}
+              onChange={(e) => setBookName(e.target.value)}
+              style={{ marginTop: '10px' }}
+            />
+          </Col>
+          <Col xs={24} sm={24} md={24} lg={24}>
+            <Dragger {...uploadProps}>
+              <p className="ant-upload-drag-icon">
+                <InboxOutlined />
+              </p>
+              <p className="ant-upload-text">
+                Click or drag files to this area to upload
+              </p>
+              <p className="ant-upload-hint">
+                Support for multiple uploads. Strictly prohibited from uploading
+                company data or other banned files.
+              </p>
+            </Dragger>
+            {/* {files.length > 0 && <div className='padding-top-20'>
             <span>{files[0].name}</span>
           </div>} */}
-        </Col>
-        {files.length > 0 && <Col xs={24} sm={24} md={24} lg={24} >
-          <Row className='padding-20 box-shadow'>
-            <Col xs={22} sm={22} md={22} lg={22}>
-              <span>{files[0].name}</span>
-            </Col>
-            <Col xs={2} sm={2} md={2} lg={2} className='text-right cursor-pointer'>
-              <DeleteOutlined onClick={() => setFiles([])}/>
-            </Col>
+          </Col>
+          {files.length > 0 && <Col xs={24} sm={24} md={24} lg={24} >
+            <Row className='padding-20 box-shadow'>
+              <Col xs={22} sm={22} md={22} lg={22}>
+                <span>{files[0].name}</span>
+              </Col>
+              <Col xs={2} sm={2} md={2} lg={2} className='text-right cursor-pointer'>
+                <DeleteOutlined onClick={() => setFiles([])} />
+              </Col>
 
-          </Row>
+            </Row>
 
-        </Col>}
-        <Col xs={24} sm={24} md={24} lg={24}>
-          <Button type="primary" onClick={handleClick}>
-            Upload
-          </Button>
-        </Col>
+          </Col>}
+          <Col xs={24} sm={24} md={24} lg={24}>
+            <Button type="primary" onClick={handleClick}>
+              Upload
+            </Button>
+          </Col>
 
-      </Row>
+        </Row>
 
 
 
-      {/* <Input
+        {/* <Input
         placeholder="Book Name"
         value={bookName}
         onChange={(e) => setBookName(e.target.value)}
@@ -119,7 +124,8 @@ const App = () => {
 
       <div style={{ paddingTop: '10px' }}> */}
 
-    </div>
+      </div>
+    </>
   );
 };
 

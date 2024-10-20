@@ -6,16 +6,16 @@ import fs from 'fs';
 
 const app = express();
 app.use(cors());
-app.use(express.json()); //parsing JSON 
+app.use(express.json()); //parse JSON
 
-const uploads = 'C:/Users/puspa/Desktop/upload/upload-app/uploadFiles'; //change the path when API is exposed 
+const uploads = 'src/uploadFiles'; 
 if (!fs.existsSync(uploads)) {
   fs.mkdirSync(uploads, { recursive: true });
 }
 
-//storing using multer
+// storing using multer
 const storage = multer.diskStorage({
-  destination: function (req, file, cb){
+  destination: function (req, file, cb) {
     cb(null, uploads);
   },
   filename: function (req, file, cb) {
@@ -25,41 +25,37 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-
-app.post('/upload', upload.array('files'), (req, res) => {
+app.post('/upload', upload.single('file'), (req, res) => {
   const { authorName, bookName } = req.body;
 
-  // Path of JSON folder
-  const userInfoPath = path.join('C:/Users/puspa/Desktop/upload/upload-app/userInfo.json');
+  // Path to JSON folder
+  const userInfoPath = path.join('src/userInfo.json'); // set a different path when API is exposed
 
-  //check the old array and if new set empty array
+  // check the old array and if new set empty array
   let userData = [];
   if (fs.existsSync(userInfoPath)) {
     const data = fs.readFileSync(userInfoPath);
     userData = JSON.parse(data);
   }
-
-  // Append data for new uploads
-  req.files.forEach(file => {
-    userData.push({
-      authorName,
-      bookName,
-      file: {
-        name: file.originalname,
-        path: path.join('/uploadFiles', file.filename),
-      },
-    });
+  // Append new data
+  userData.push({
+    authorName,
+    bookName,
+    file: {
+      name: req.file.originalname,
+      path: path.join('src/uploadFiles', req.file.filename),
+    },
   });
 
-  // Save the data in JSON folder
+  // save the data in JSON folder
   fs.writeFileSync(userInfoPath, JSON.stringify(userData, null, 2));
 
   res.json({
-    message: 'Files uploaded successfully.',
-    files: req.files.map(file =>({
-      name: file.originalname,
-      path: path.join('/uploadFiles', file.filename),
-    })),
+    message: 'File uploaded successfully.',
+    file: {
+      name: req.file.originalname,
+      path: path.join('src/uploadFiles', req.file.filename),
+    },
   });
 });
 
