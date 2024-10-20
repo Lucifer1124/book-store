@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json()); //parse JSON
 
-const uploads = 'src/uploadFiles'; 
+const uploads = 'client/src/uploadFiles'; 
 if (!fs.existsSync(uploads)) {
   fs.mkdirSync(uploads, { recursive: true });
 }
@@ -29,7 +29,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
   const { authorName, bookName } = req.body;
 
   // Path to JSON folder
-  const userInfoPath = path.join('src/userInfo.json'); // set a different path when API is exposed
+  const userInfoPath = path.join('client/src/userInfo.json'); // set a different path when API is exposed
 
   // check the old array and if new set empty array
   let userData = [];
@@ -43,7 +43,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
     bookName,
     file: {
       name: req.file.originalname,
-      path: path.join('src/uploadFiles', req.file.filename),
+      path: path.join('client/src/uploadFiles', req.file.filename),
     },
   });
 
@@ -54,12 +54,12 @@ app.post('/upload', upload.single('file'), (req, res) => {
     message: 'File uploaded successfully.',
     file: {
       name: req.file.originalname,
-      path: path.join('src/uploadFiles', req.file.filename),
+      path: path.join('client/src/uploadFiles', req.file.filename),
     },
   });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 9050;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

@@ -3,12 +3,13 @@ import multer from 'multer';
 import cors from 'cors';
 import path from 'path';
 import fs from 'fs';
-
+import {} from ''
 const app = express();
 app.use(cors());
 app.use(express.json()); //parsing JSON 
 
-const uploads = 'src/uploadFiles'; //change the path when API is exposed 
+
+const uploads = 'client/src/uploadFiles'; //change the path when API is exposed 
 if (!fs.existsSync(uploads)) {
   fs.mkdirSync(uploads, { recursive: true });
 }
@@ -30,7 +31,7 @@ app.post('/upload', upload.array('files'), (req, res) => {
   const { authorName, bookName } = req.body;
 
   // Path of JSON folder
-  const userInfoPath = path.join('src/userInfo.json');
+  const userInfoPath = path.join('client/src/userInfo.json');
 
   //check the old array and if new set empty array
   let userData = [];
@@ -46,7 +47,7 @@ app.post('/upload', upload.array('files'), (req, res) => {
       bookName,
       file: {
         name: file.originalname,
-        path: path.join('src/uploadFiles', file.filename),
+        path: path.join('client/src/uploadFiles', file.filename),
       },
     });
   });
@@ -58,12 +59,12 @@ app.post('/upload', upload.array('files'), (req, res) => {
     message: 'Files uploaded successfully.',
     files: req.files.map(file =>({
       name: file.originalname,
-      path: path.join('src/uploadFiles', file.filename),
+      path: path.join('client/src/uploadFiles', file.filename),
     })),
   });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 9050;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
