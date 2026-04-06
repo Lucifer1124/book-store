@@ -1,0 +1,141 @@
+🚀 BOOKIE POOKIE - QUICK START GUIDE
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  IMPORTANT: Don't open index.html directly in browser!
+
+The file:// protocol blocks fetch requests for security reasons.
+You MUST use a local HTTP server.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ SIMPLEST METHOD: Python Server
+
+1. Open Command Prompt or PowerShell
+2. Navigate to the project folder:
+   
+   cd "p:\book store"
+
+3. Start the server:
+   
+   python -m http.server 8000
+
+4. Open your browser and go to:
+   
+   http://localhost:8000
+
+5. You're done! App loads automatically
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 WHAT TO DO IN THE APP
+
+1️⃣ Sign Up (First Time)
+   - Click "Create an Account"
+   - First Name: John
+   - Email: john@example.com
+   - Password: password123 (min 8 chars)
+   - Click Signup → Auto-logged in
+
+2️⃣ Upload a Book
+   - Click "Upload Book" button
+   - Fill in title, author, category
+   - Choose a cover image
+   - Choose a book file (PDF or DOCX)
+   - Choose Free or Paid
+   - If Paid, enter price
+   - Click "Upload Book"
+
+3️⃣ Go to Checkout
+   - Click "Checkout" button
+   - See your uploaded book
+   - Click "Buy Now"
+   - Confirm purchase with Cash payment
+   - See "Order Confirmed!" message
+   - Click "Continue Shopping" to view more
+
+4️⃣ View Purchases
+   - Still in Checkout page
+   - Scroll down to "Your Purchased Books"
+   - Select a book from dropdown
+   - See your purchase details
+
+5️⃣ Logout
+   - Click "Logout" button
+   - Session clears
+   - Redirected to login page
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 TROUBLESHOOTING
+
+Q: "Error loading page" message shows
+A: You're not using a local server. Follow the Python method above.
+
+Q: "python command not found"
+A: Install Python from https://www.python.org
+   Make sure to check "Add Python to PATH" during installation
+
+Q: Port 8000 already in use
+A: Use a different port:
+   python -m http.server 8001
+   Then open http://localhost:8001
+
+Q: Want to use VS Code instead?
+A: 1. Install "Live Server" extension
+   2. Right-click index.html
+   3. Click "Open with Live Server"
+   4. Browser opens automatically
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 PROJECT FILES
+
+index.html         ← Start here (in browser at http://localhost:8000)
+route.js          ← Router system
+README.md         ← Detailed documentation
+WORKFLOW_GUIDE.md ← Feature details
+
+auth/
+  ├── login.html
+  ├── signup.html
+  ├── validation.js
+  └── style.css
+
+home/
+  ├── home.html
+  ├── home.js
+  └── home.css
+
+checkout/
+  ├── checkout.html
+  ├── checkout.js
+  └── checkout.css
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ FEATURES
+
+✅ User Registration & Login
+✅ Book Upload (Free & Paid)
+✅ Book Search & Filter
+✅ Book Reader
+✅ Shopping Checkout
+✅ Purchase History
+✅ Cash on Delivery Payment
+✅ Responsive Design
+✅ Data Persistence (localStorage)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 PRO TIPS
+
+• Data is saved in browser localStorage
+• Close browser and data persists
+• Create multiple accounts to test
+• Check DevTools (F12) → Application → Local Storage to view data
+• Remove all data: Press F12 → Console → localStorage.clear()
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ENJOY USING BOOKIE POOKIE! 📚✨

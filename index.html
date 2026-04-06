@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookie Pookie - Digital Library</title>
+    <script>
+        // Check if user is logged in
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+        window.onload = function () {
+            if (currentUser) {
+                // Redirect to home if logged in
+                window.location.href = 'home/home.html';
+            } else {
+                // Redirect to login if not logged in
+                window.location.href = 'auth/login.html';
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <p>Redirecting...</p>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+/* Minimal custom styles */
+                :root {
+                    --accent-color: #8672FF;
+                    --text-color: #2E2B41;
+                    --input-color: #F3F0FF;
+                }
+        
+                .bg-accent {
+                    background-color: var(--accent-color) !important;
+                }
+        
+                .text-accent {
+                    color: var(--accent-color) !important;
+                }
+        
+                .btn-accent {
+                    background-color: var(--accent-color);
+                    color: white;
+                    border: none;
+                }
+        
+                .btn-accent:hover {
+                    background-color: #7565e6;
+                    color: white;
+                }
+        
+                .btn-outline-accent {
+                    color: var(--accent-color);
+                    border-color: var(--accent-color);
+                }
+        
+                .btn-outline-accent:hover {
+                    background-color: var(--accent-color);
+                    color: white;
+                }
+        
+                .book-card {
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    border: 1px solid #dee2e6;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    height: 100%;
+                }
+        
+                .book-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 25px rgba(134, 114, 255, 0.15);
+                }
+        
+                .book-cover {
+                    height: 200px;
+                    object-fit: cover;
+                    width: 100%;
+                    background-color: #f5f5f5;
+                }
+        
+                .category-badge {
+                    background-color: var(--input-color);
+                    color: var(--accent-color);
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    padding: 0.25rem 0.5rem;
+                    border-radius: 4px;
+                }
+        
+                .form-control:focus,
+                .form-select:focus {
+                    border-color: var(--accent-color);
+                    box-shadow: 0 0 0 0.25rem rgba(134, 114, 255, 0.25);
+                }
+        
+                #pdfViewerContainer {
+                    height: 70vh;
+                    border: 1px solid #dee2e6;
+                    border-radius: 8px;
+                    overflow: auto;
+                    background: #f5f5f5;
+                }
+        
+                .book-actions {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    z-index: 10;
+                }
+        
+                .delete-btn {
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+        
+                .book-card:hover .delete-btn {
+                    opacity: 1;
+                }
+        
+                .pdf-controls {
+                    background: white;
+                    padding: 10px;
+                    border-bottom: 1px solid #dee2e6;
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                }
+        
+                .pdf-canvas {
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 100%;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                }
+        
+                .pdf-page-info {
+                    margin: 10px 0;
+                    text-align: center;
+                    color: #666;
+                }
+        
+                .category-filter-btn {
+                    margin: 2px;
+                }
+        
+                .category-active {
+                    background-color: var(--accent-color) !important;
+                    color: white !important;
+                }
+        
+                .size-warning {
+                    color: #dc3545;
+                    font-size: 0.875rem;
+                    margin-top: 5px;
+                }
+        
+                .file-preview {
+                    background: white;
+                    padding: 20px;
+                    border-radius: 5px;
+                    margin-top: 10px;
+                }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.book-cover {
+    height: 250px;
+    object-fit: cover;
+    background-color: #f5f5f5;
+}
+
+#noResults {
+    display: block;
+}
+
+.category-badge {
+    background-color: var(--input-color);
+    color: var(--accent-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.is-invalid:focus {
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+}
+
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+}
+
+.is-invalid~.invalid-feedback {
+    display: block;
+}
+
+.form-text.text-success {
+    color: #198754 !important;
+}
+
+.form-text.text-danger {
+    color: #dc3545 !important;
+}
+
+.size-warning {
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
